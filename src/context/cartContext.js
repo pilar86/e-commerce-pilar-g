@@ -49,13 +49,13 @@ export default function CartContextProvider({children}) {
         return cart.reduce((acc, data) => acc += data.qantty, 0)
     }
 
-    const getItemPrice = () => {
+    const getTotalPrice = () => {
         return cart.reduce((acc, data) => acc += data.price * data.qantty, 0)
     }
 
     return(
         //3- se pasa el objeto Value a los componentes hijos
-        <cartContext.Provider value ={{cart, addItem, isInCart, emptyCart, deleteItem, getItemQantty, getItemPrice}}>{children}</cartContext.Provider>
+        <cartContext.Provider value ={{cart, addItem, isInCart, emptyCart, deleteItem, getItemQantty, getTotalPrice}}>{children}</cartContext.Provider>
      );
 }
 

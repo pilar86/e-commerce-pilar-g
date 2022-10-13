@@ -6,6 +6,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContextProvider from './context/cartContext';
+import CartView from './components/CartView/CartView';
 
 
 function App() {
@@ -19,8 +20,7 @@ function App() {
         <Route path="/category/:category" element={<ItemListContainer/>}/>
         <Route path="/body/:id" element={<ItemDetailContainer/>}/>
         <Route path="*" element={<h6>"Producto no Encontado"</h6>}/>
-
-        <Route path="/cart" element={<Cart/>} />
+        <Route path="/cart" element={<CartView/>}/>
       </Routes>
       
       <Footer/>

@@ -3,24 +3,31 @@ import "./itemListContainer.css";
 import ItemList from "../../components/Productos/ItemList";
 import { useParams } from "react-router-dom";
 import getItems, { getItemsByCategory } from '../../services/mockAPI';
+import { DotPulse } from '@uiball/loaders'
 
 
 function ItemListContainer() {
 
-        let [data, setData] = useState([]);
+        const [data, setData] = useState([]);     
+        const [isLoading, setIsLoading] = useState(true);
         const { category } = useParams ();
-
+        
     
     useEffect(()=>{
         if (category === undefined) {
-            getItems().then((respDatos)=> setData(respDatos));
+            getItems().then((respDatos)=> setData(respDatos))
+                      .finally(() => setIsLoading(false))  
         } else {
-            getItemsByCategory(category).then((respDatos) => setData (respDatos));
+            getItemsByCategory(category).then((respDatos) => setData (respDatos))
+                                        .finally(() => setIsLoading(false)) 
         }
     }, [category]);
 
+     
+
     return (
         <div>
+            {isLoading && <DotPulse size={80} speed={1.5} color="green"/>}
             <div className="main container">
                 <ItemList data={data}/>  
                 </div>

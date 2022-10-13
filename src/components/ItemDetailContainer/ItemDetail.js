@@ -18,13 +18,13 @@ function ItemDetail({ data }) {
   return (
     <div className="CardDetail">
 
-      <img src={data.img} alt={data.title} />
+      <img src={data.img} alt={data.title}/>
       <h4>{data.title}</h4>
       <h4>{data.detail}</h4>
       <h4>${data.price}</h4>
 
       {
-        item === false ? <ItemCount qantty={1} stock={10} onAddToCart={onAddToCart}/> :  <Link to={"/cart"}>Ir al carrito</Link>}
+        item === false ? <ItemCount qantty={1} stock={10} onAddToCart={onAddToCart}/> : <Link to={"/cart"}>Ir al carrito</Link>}
 
     </div>
   );
