@@ -218,14 +218,13 @@ const data = [
         img: "/assets/productos/img/hair5.jpg",
     },
     
-
 ]
 
 export default function getItems(){
     return new Promise ((resolve, reject) => {
         setTimeout( ()=>{
             resolve(data)
-        },1300)
+        },1500)
     });
 }
 

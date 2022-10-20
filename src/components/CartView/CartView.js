@@ -16,8 +16,6 @@ function CartView() {
     if (carritoVacio){
         <div><h4>Tu Carrito está Vacío</h4></div>;
     }
-
-
     return (
         <div className="cartView-container" >
             { cart.map ( item => (
@@ -28,7 +26,7 @@ function CartView() {
                     <h4>{item.title}</h4>
                     <h4>${item.price} Unidad</h4>
                     <h4>Cantidad: {item.qantty}</h4>
-                    <h4>Subtotal={item.price * item.qantty}</h4>
+                    <h4>Subtotal=${item.price * item.qantty}</h4>
                     <button className="button-delete" onClick = {()=> deleteItem(item.id)}><FontAwesomeIcon icon={faTrashCan}/></button>
                 
                 </div>

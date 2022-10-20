@@ -24,8 +24,7 @@ function ItemDetail({ data }) {
       <h4>${data.price}</h4>
 
       {
-        item === false ? <ItemCount qantty={1} stock={10} onAddToCart={onAddToCart}/> : <Link to={"/cart"}>Ir al carrito</Link>}
-
+        item === false ? <ItemCount qantty={1} stock={10} onAddToCart={onAddToCart}/> : <Link to={"/cart"}><button>Ir al carrito</button></Link>}
     </div>
   );
 }
