@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import "./itemListContainer.css";
 import ItemList from "../../components/Productos/ItemList";
 import { useParams } from "react-router-dom";
-import {getItems } from "../../services/firestore";
+import {getItems, getItemsByCategory } from "../../services/firestore";
 import { DotPulse } from '@uiball/loaders'
 
 
@@ -17,9 +17,12 @@ function ItemListContainer() {
         if (category === undefined) {
         getItems()
         .then((respDatos)=> setData(respDatos))
-        .finally(() => setIsLoading(false))  
+        .finally(() => setIsLoading(false));
+        } else{
+            getItemsByCategory(category)
+            .then((respDatosFiltredos) => setData(respDatosFiltredos))
+        }
 
-        } 
         }, [category]);
 
         return (
